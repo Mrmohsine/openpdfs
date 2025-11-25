@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('file_path');
             $table->string('file_original_name');
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('type_id')->constrained()->onDelete('cascade');
 
             $table->timestamps();
         });
